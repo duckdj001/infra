@@ -1,0 +1,40 @@
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"cilium.io/v2","kind":"CiliumClusterwideNetworkPolicy","metadata":{"annotations":{},"name":"allow-all-clusterwide"},"spec":{"egress":[{"toEntities":["cluster","world","host","remote-node","kube-apiserver"]},{"toEndpoints":[{}]},{"toCIDR":["0.0.0.0/0","::/0"]}],"endpointSelector":{},"ingress":[{"fromEntities":["cluster","world","host","remote-node","kube-apiserver"]},{"fromEndpoints":[{}]}]}}
+  creationTimestamp: "2025-09-23T10:31:26Z"
+  generation: 1
+  name: allow-all-clusterwide
+  resourceVersion: "10036813"
+  uid: b0443c11-9fd9-43e2-92d3-e2f1aa9bf4da
+spec:
+  egress:
+  - toEntities:
+    - cluster
+    - world
+    - host
+    - remote-node
+    - kube-apiserver
+  - toEndpoints:
+    - {}
+  - toCIDR:
+    - 0.0.0.0/0
+    - ::/0
+  endpointSelector: {}
+  ingress:
+  - fromEntities:
+    - cluster
+    - world
+    - host
+    - remote-node
+    - kube-apiserver
+  - fromEndpoints:
+    - {}
+status:
+  conditions:
+  - lastTransitionTime: "2025-09-23T10:31:26Z"
+    message: Policy validation succeeded
+    status: "True"
+    type: Valid
